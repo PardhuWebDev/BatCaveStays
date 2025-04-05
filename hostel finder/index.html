@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hostel Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+  
+<body>
+    <button id="themeToggle" class="theme-toggle">🌓</button>
+
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+      
+        // Load theme from localStorage
+        if (localStorage.getItem("theme") === "light") {
+          document.body.classList.add("light-mode");
+        }
+      
+        toggleBtn?.addEventListener("click", () => {
+          document.body.classList.toggle("light-mode");
+          const isLight = document.body.classList.contains("light-mode");
+          localStorage.setItem("theme", isLight ? "light" : "dark");
+        });
+      </script>
+
+  <div class="logo-container">
+    <img src="assets/batlogo.png" class="bat-logo" alt="Batman Logo">
+  </div>
+
+  <h1>Welcome to Hostel Finder</h1>
+  <p style="margin-bottom: 40px;">Your Gotham guide to the best places to stay.</p>
+  <button onclick="window.location.href='search.html'">Start Searching</button>
+
+</body>
+</html>
+
+
+  

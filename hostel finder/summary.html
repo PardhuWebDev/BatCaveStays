@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8">
+  <title>Booking Summary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle">🌓</button>
+
+  <div class="logo-container">
+    <img src="assets/batlogo.png" class="bat-logo" alt="Batman Logo">
+  </div>
+
+  
+
+  <h1 class="bat-title">✅ Booking Confirmed</h1>
+
+  <div class="card" id="summaryCard">
+    <!-- Booking summary will appear here -->
+  </div>
+
+  <script>
+    // Theme toggle
+    const toggleBtn = document.getElementById("themeToggle");
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+    }
+    toggleBtn?.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+
+    // Get booking data
+    const booking = JSON.parse(sessionStorage.getItem("booking"));
+
+    const summaryCard = document.getElementById("summaryCard");
+
+    if (booking) {
+      summaryCard.innerHTML = `
+  <h2>Thanks for booking, ${booking.guestName}!</h2>
+  <p><strong>Hostel:</strong> ${booking.hostelName}</p>
+  <p><strong>Check-In:</strong> ${booking.checkinDate}</p>
+  <p><strong>Check-Out:</strong> ${booking.checkoutDate}</p>
+  <p><strong>Email:</strong> ${booking.guestEmail}</p>
+  <p><strong>Phone:</strong> ${booking.guestPhone}</p>
+  <br>
+  <p style="color: var(--highlight);">Your reservation is secured. Gotham is watching. 🦇</p>
+  <br>
+  <a href="index.html"><button class="glow-btn">Return to Home</button></a>
+  <button class="glow-btn" onclick="window.print()">🖨️ Print Booking</button>
+`;
+
+    } else {
+      summaryCard.innerHTML = `
+        <h2>Booking not found!</h2>
+        <p>Please go back and fill the check-in form again.</p>
+        <a href="checkin.html"><button class="glow-btn">Try Again</button></a>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url("assets/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-color);
+    transition: background-color 0.4s, color 0.4s;
+  }
+  
+
+:root {
+    --bg-color: #121212;
+    --text-color: #fff;
+    --card-bg: #1e1e1e;
+    --highlight: #FFD700;
+  }
+  
+  body {
+    margin: 0;
+    padding: 40px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    transition: background-color 0.4s, color 0.4s;
+  }
+  
+  /* Light Mode (overrides dark) */
+  body.light-mode {
+    --bg-color: #f9f9f9;
+    --text-color: #111;
+    --card-bg: #fff;
+  }
+  
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--highlight);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .theme-toggle:hover {
+    background: var(--highlight);
+    color: #000;
+  }
+  
+  /* Card styles */
+  .card {
+
+    /* Hostel Grid Layout */
+.hostel-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Card sizing for grid */
+  .card {
+    width: 300px;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #FFD70033;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #FFD70088;
+  }
+  
+
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+  }
+  
+  h1, h2 {
+    color: #FFD700; /* Batman yellow */
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  input, button {
+    padding: 12px;
+    margin: 10px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+  }
+  
+  input {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #444;
+    width: 250px;
+  }
+  
+  button {
+    background-color: #FFD700;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ffc800;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+  }
+  
+  .card {
+    background-color: #1f1f1f;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 400px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+
+
+  }
+  
+  .logo-container {
+    animation: fadeIn 2s ease-in-out;
+    margin-bottom: 30px;
+  }
+  
+  .bat-logo {
+    width: 120px;
+    height: auto;
+    animation: pulseGlow 3s infinite;
+    filter: drop-shadow(0 0 10px #FFD700);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { filter: drop-shadow(0 0 8px #FFD700); }
+    50% { filter: drop-shadow(0 0 18px #FFD700); }
+  }
+  
+  .hostel-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover .hostel-img {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #FFD700;
+  }
+  
+  /* Orbitron Font Title */
+.bat-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #FFD700;
+  }
+  
+  /* Glass Card */
+  .glass-card {
+    background: rgba(30, 30, 30, 0.4);
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 30px 25px;
+    max-width: 400px;
+    margin: 0 auto;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+  }
+  
+  /* Glowing Input Fields */
+  .form-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 14px 12px;
+    background: transparent;
+    border: 2px solid #555;
+    border-radius: 6px;
+    color: #FFD700;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    color: #999;
+    pointer-events: none;
+    transition: 0.2s ease all;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .form-group input:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 10px #FFD700;
+  }
+  
+  .form-group input:focus + label,
+  .form-group input:not(:placeholder-shown) + label,
+  .form-group input:valid + label {
+    top: -12px;
+    left: 10px;
+    font-size: 0.75em;
+    color: #FFD700;
+    background-color: #121212;
+    padding: 0 5px;
+  }
+  
+  /* Button Glow */
+  .glow-btn {
+    background: #FFD700;
+    color: #000;
+    padding: 12px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #FFD700;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  
+  .glow-btn:hover {
+    background: #ffcc00;
+    box-shadow: 0 0 20px #FFD700;
+  }
+
+  /* Fix input overflow inside form card */
+.glass-card input {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  /* Summary Card Specific */
+.summary-card {
+    text-align: center;
+    animation: fadeIn 1.2s ease;
+  }
+  
+  .summary-label {
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 0 6px #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1em;
+  }
+  
+  .summary-bat {
+    width: 60px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: pulseGlow 3s infinite;
+    filter: drop-shadow(0 0 12px #FFD700);
+  }
+
+  /* Review form enhancements */
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #1e1e1e;
+  color: #fff;
+  border: 1px solid #FFD70088;
+  border-radius: 6px;
+  font-family: 'Segoe UI', sans-serif;
+  resize: none;
+}
+
+.review-form textarea {
+  height: 100px;
+}
+
+.review-card {
+  margin: 20px auto;
+  max-width: 500px;
+  animation: fadeIn 0.8s ease;
+  border: 1px solid #FFD70033;
+}
+
+.review-card h4 {
+  color: #FFD700;
+  margin-bottom: 5px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.review-card p {
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Hostel grid layout */
+.hostel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  /* Individual hostel card enhancements */
+  .hostel-card {
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hostel-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px #FFD70066;
+  }
+  
+  .hostel-card h3 {
+    color: #FFD700;
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .glass-card {
+    background: rgba(0, 0, 0, 0.7); /* See-through glassy black */
+    border: 1px solid #FFD70022;
+    box-shadow: 0 0 20px #FFD70033;
+    backdrop-filter: blur(6px);
+  }
+  
+  .bat-title {
+    font-size: 2.5em;
+    color: #FFD700;
+    text-shadow: 2px 2px 8px black;
+    margin-bottom: 30px;
+  }
+  
+  .search-card {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #FFD70055;
+    max-width: 450px;
+    margin: auto;
+    border: 1px solid #FFD70022;
+    backdrop-filter: blur(8px);
+  }
+  
+  .form-label {
+    display: block;
+    color: #FFD700;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1em;
+  }
+  
+  .glow-btn {
+    background-color: #FFD700;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 20px #FFD70088;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  .glow-btn:hover {
+    box-shadow: 0 0 35px #FFD700;
+    transform: scale(1.05);
+  }
+
+  #reviewList p {
+    background-color: #222;
+    padding: 10px;
+    margin: 8px 0;
+    border-left: 4px solid #FFD700;
+    border-radius: 4px;
+    text-align: left;
+  }
+  
+  .card form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #reviewInput {
+    width: 90%;
+    max-width: 300px;
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #FFD700;
+    border-radius: 6px;
+    font-size: 1em;
+  }
+    
+  .glow-btn {
+    background-color: #FFD700;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .glow-btn:hover {
+    box-shadow: 0 0 15px #FFD700aa;
+  }
+  
+  .card form input {
+    width: 90%;
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1em;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #FFD700;
+    border-radius: 6px;
+  }
+  
+  form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--highlight);
+    text-align: left;
+    width: 90%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media print {
+    .theme-toggle,
+    .logo-container,
+    .bat-logo,
+    a,
+    button {
+      display: none !important;
+    }
+  
+    body {
+      background: white !important;
+      color: black !important;
+      font-family: serif;
+    }
+  
+    .card {
+      box-shadow: none;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+  }
+  
+  input[type="text"], input[type="date"] {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 12px;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 300px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 20px;
+    }
+  
+    .card {
+      max-width: 90%;
+      margin: 15px auto;
+    }
+  
+    .hostel-img {
+      max-width: 100%;
+    }
+  
+    .glow-btn, input, button {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    .nav-back {
+      margin-bottom: 20px;
+    }
+  
+    h1, h2 {
+      font-size: 1.6em;
+    }
+  
+    .theme-toggle {
+      top: 15px;
+      right: 15px;
+      width: 35px;
+      height: 35px;
+      font-size: 16px;
+    }
+  }
+
+  button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  

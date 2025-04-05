@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8">
+  <title>Search Hostels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle">🌓</button>
+
+  <div class="logo-container">
+    <img src="assets/batlogo.png" class="bat-logo" alt="Batman Logo">
+  </div>
+
+  
+
+  <h1 class="bat-title">Find Hostels in Your City</h1>
+
+  <div class="card">
+    <h2>Search Hostels</h2>
+    <input type="text" id="cityInput" placeholder="Enter City (e.g. Gotham)">
+    <br>
+    <button onclick="searchHostels()">Find Hostels</button>
+  </div>
+
+  <div id="hostelList" class="hostel-list-container"></div>
+  <script>
+    const toggleBtn = document.getElementById("themeToggle");
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+    }
+    toggleBtn?.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+  
+    const allHostels = [
+      { name: "Wayne Residency", image: "assets/wayne.jpg", city: "gotham" },
+      { name: "Arkham Dorms", image: "assets/arkham.jpg", city: "gotham" },
+      { name: "Batcave Hostel", image: "assets/batcave.jpg", city: "gotham" },
+      { name: "Krypton Stay", image: "assets/planet.jpg", city: "metropolis" },
+      { name: "Fortress Inn", image: "assets/fortress.jpg", city: "metropolis" }
+    ];
+  
+    function searchHostels() {
+      const city = document.getElementById("cityInput").value.trim().toLowerCase();
+      const container = document.getElementById("hostelList");
+      container.innerHTML = "";
+  
+      const results = allHostels.filter(h => h.city === city || city === "");
+  
+      container.innerHTML = `<h2>Hostels in "${city || 'Any City'}"</h2>`;
+  
+      const listWrapper = document.createElement("div");
+      listWrapper.style.flexWrap = "wrap";
+      listWrapper.style.display = "flex";
+      listWrapper.style.flexWrap = "wrap";
+      listWrapper.style.justifyContent = "center";
+      listWrapper.style.gap = "20px";
+  
+      if (results.length === 0) {
+        container.innerHTML += `<p>No hostels found for "${city}". Here's what we recommend:</p>`;
+        allHostels.forEach(h => results.push(h));
+      }
+  
+      results.forEach(h => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.width = "250px";
+  
+        card.innerHTML = `
+          <img src="${h.image}" class="hostel-img" alt="${h.name}">
+          <h3>${h.name}</h3>
+          <a href="reviews.html?hostel=${encodeURIComponent(h.name)}"><button>Reviews</button></a>
+          <a href="checkin.html?hostel=${encodeURIComponent(h.name)}"><button>Book Now</button></a>
+        `;
+  
+        listWrapper.appendChild(card);
+      });
+  
+      container.appendChild(listWrapper);
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8" />
+  <title>Check-In</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle">🌓</button>
+
+  <div class="logo-container">
+    <img src="assets/batlogo.png" class="bat-logo" alt="Batman Logo" />
+  </div>
+
+  
+
+  <h1 class="bat-title">📝 Book Your Stay</h1>
+
+  <div class="card">
+    <form id="checkinForm">
+      <input type="text" id="guestName" placeholder="Your Name" required />
+      <input type="email" id="guestEmail" placeholder="Email Address" required />
+      <input type="tel" id="guestPhone" placeholder="Phone Number" required />
+
+      <label for="checkinDate">Check-In Date</label>
+      <input type="date" id="checkinDate" required />
+      
+      <label for="checkoutDate">Check-Out Date</label>
+      <input type="date" id="checkoutDate" required />
+      
+
+      <input type="text" id="selectedHostel" readonly />
+
+      <button type="submit" class="glow-btn">Confirm Booking</button>
+    </form>
+  </div>
+
+  <script>
+    // Theme toggle
+    const toggleBtn = document.getElementById("themeToggle");
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+    }
+    toggleBtn?.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+
+    // Pre-fill hostel name from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const hostelName = urlParams.get("hostel") || "Unknown Hostel";
+    document.getElementById("selectedHostel").value = hostelName;
+
+    // Submit handler
+    document.getElementById("checkinForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Collect data
+      const guestName = document.getElementById("guestName").value;
+      const guestEmail = document.getElementById("guestEmail").value;
+      const guestPhone = document.getElementById("guestPhone").value;
+      const checkinDate = document.getElementById("checkinDate").value;
+      const checkoutDate = document.getElementById("checkoutDate").value;
+
+      // Store in sessionStorage for the summary page
+      sessionStorage.setItem("booking", JSON.stringify({
+        guestName, guestEmail, guestPhone, checkinDate, checkoutDate, hostelName
+      }));
+
+      // Redirect to summary
+      window.location.href = "summary.html";
+    });
+  </script>
+</body>
+</html>

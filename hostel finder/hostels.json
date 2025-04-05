@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "name": "Wayne Manor Hostel",
+      "image": "assets/wayne.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Arkham Inn",
+      "image": "assets/arkham.jpg"
+    },
+    {
+      "id": 3,
+      "name": "BatCave Bunks",
+      "image": "assets/batcave.jpg"
+    }
+  ]
+  

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8" />
+  <title>Reviews</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle">🌓</button>
+
+  <div class="logo-container">
+    <img src="assets/batlogo.png" class="bat-logo" alt="Batman Logo" />
+  </div>
+
+  
+
+  <h1 class="bat-title" id="reviewHostelTitle">Reviews</h1>
+
+  <div class="card">
+    <div id="reviewList">
+      <!-- Reviews will be added here -->
+    </div>
+
+    <h3 style="margin-top: 30px;">Drop your thoughts:</h3>
+    <form id="reviewForm">
+      <input type="text" id="reviewInput" placeholder="Your review..." required />
+      <button type="submit" class="glow-btn">Submit Review</button>
+    </form>
+  </div>
+
+  <script>
+    // Theme toggle
+    const toggleBtn = document.getElementById("themeToggle");
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+    }
+
+    toggleBtn?.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+
+    // Get hostel name from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const hostelName = urlParams.get("hostel") || "Unknown Hostel";
+    document.getElementById("reviewHostelTitle").textContent = `Reviews for ${hostelName}`;
+
+    // Sample reviews per hostel
+    const sampleReviews = {
+      "Batcave Hostel": [
+        "Silent. Secure. Smells like vengeance.",
+        "Alfred’s service was unmatched!"
+      ],
+      "Arkham Stay": [
+        "Too many clowns around.",
+        "Decent beds, terrifying neighbors."
+      ],
+      "Wayne's Refuge": [
+        "Luxury with a side of mystery.",
+        "Free bat-shaped cookies!"
+      ],
+      "Daily Planet Dorms": ["Good views. No kryptonite detected."],
+      "Fortress Inn": ["Coldest place I’ve ever stayed. No exaggeration."]
+    };
+
+    const reviewList = document.getElementById("reviewList");
+
+    function renderReviews() {
+      reviewList.innerHTML = "";
+      const reviews = sampleReviews[hostelName] || ["No reviews yet. Be the first!"];
+      reviews.forEach((text) => {
+        const p = document.createElement("p");
+        p.textContent = `🗨️ ${text}`;
+        reviewList.appendChild(p);
+      });
+    }
+
+    renderReviews();
+
+    // Add review
+    document.getElementById("reviewForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const newReview = document.getElementById("reviewInput").value;
+      if (!sampleReviews[hostelName]) sampleReviews[hostelName] = [];
+      sampleReviews[hostelName].unshift(newReview);
+      document.getElementById("reviewInput").value = "";
+      renderReviews();
+    });
+  </script>
+</body>
+</html>
